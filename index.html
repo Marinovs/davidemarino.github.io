@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
   <head>
@@ -6,21 +5,489 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>davidemarino.it</title>
     <meta name="description" content="Sviluppatore web e mobile specializzato in siti web, e-commerce, gestionali, menu digitali e app mobili. Trasformo le tue idee in realtà digitali." />
-    <meta name="author" content="Davide" />
+    <meta name="author" content="Davide Marino" />
     <meta name="keywords" content="sviluppatore siti web, e-commerce, app mobile, gestionale, menu digitale" />
+    <meta name="image" >
 
-    <meta property="og:title" content="Davide - Sviluppatore Web e Mobile" />
+    <meta property="og:title" content="davidemarino.it" />
     <meta property="og:description" content="Sviluppatore web e mobile specializzato in siti web, e-commerce, gestionali, menu digitali e app mobili." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:image" content="https://i.ibb.co/yFbwTpSj/avatar.png" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/yFbwTpSj/avatar.png">
+
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Stili custom -->
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', sans-serif; }
+      .glass-card {
+        border: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37), inset 0 1px 0 0 rgba(255,255,255,0.1), 0 1px 0 0 rgba(255,255,255,0.05);
+        background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+        transition: all 0.3s;
+      }
+      .glass-button {
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255,255,255,0.2);
+        background: linear-gradient(145deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+        box-shadow: 0 4px 16px 0 rgba(31,38,135,0.15);
+        transition: all 0.3s;
+      }
+      .glass-nav {
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        background: linear-gradient(145deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+        transition: all 0.3s;
+      }
+      .gradient-text {
+        background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+      }
+      .liquid-gradient {
+        background: linear-gradient(135deg, #3b82f6 0%, #a21caf 25%, #db2777 50%, #3b82f6 75%, #06b6d4 100%);
+        background-size: 400% 400%;
+        animation: liquidFlow 8s ease-in-out infinite;
+      }
+      @keyframes liquidFlow {
+        0%,100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      .floating { animation: float 6s ease-in-out infinite; }
+      @keyframes float {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+      }
+      .glow { box-shadow: 0 0 20px rgba(59,130,246,0.5), 0 0 40px rgba(59,130,246,0.3); }
+      .animate-fade-in-up { animation: fadeInUp 1s both; }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(40px);}
+        to { opacity: 1; transform: translateY(0);}
+      }
+      .animate-slide-in-left { animation: slideInLeft 1s both; }
+      @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-40px);}
+        to { opacity: 1; transform: translateX(0);}
+      }
+      .animate-slide-in-right { animation: slideInRight 1s both; }
+      @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(40px);}
+        to { opacity: 1; transform: translateX(0);}
+      }
+    </style>
   </head>
 
-  <body>
+  <body class="bg-gradient-to-br from-slate-900 to-slate-950 text-white min-h-screen">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <div class="text-xl font-bold gradient-text">davidemarino.it</div>
+          <nav class="hidden md:flex space-x-8">
+            <a href="#hero" class="text-white/80 hover:text-white transition-colors duration-300 relative group">Home</a>
+            <a href="#chi-sono" class="text-white/80 hover:text-white transition-colors duration-300 relative group">Chi sono</a>
+            <a href="#servizi" class="text-white/80 hover:text-white transition-colors duration-300 relative group">Servizi</a>
+            <a href="#portfolio" class="text-white/80 hover:text-white transition-colors duration-300 relative group">Portfolio</a>
+            <a href="#contatti" class="text-white/80 hover:text-white transition-colors duration-300 relative group">Contatti</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 liquid-gradient rounded-full opacity-20 blur-3xl floating"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 liquid-gradient rounded-full opacity-10 blur-3xl floating" style="animation-delay:2s"></div>
+        <div class="absolute top-3/4 left-1/2 w-48 h-48 liquid-gradient rounded-full opacity-15 blur-3xl floating" style="animation-delay:4s"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="glass-card rounded-3xl p-8 md:p-12 animate-fade-in-up">
+            <div class="flex flex-col items-center mb-6 animate-fade-in">
+              <div class="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 rounded-full overflow-hidden shadow-xl border-2 border-blue-100 bg-white/60 backdrop-blur-lg flex items-center justify-center">
+                <img src="https://i.ibb.co/yFbwTpSj/avatar.png" alt="Davide avatar" class="w-full h-full object-cover" />
+              </div>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              <span class="gradient-text">Davide Marino</span>
+            </h1>
+            <p class="text-lg text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Trasformo le tue idee in realtà digitali attraverso soluzioni moderne e innovative. 
+              Siti web responsive, e-commerce performanti, gestionali personalizzati e app mobile.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#contatti" class="glass-button rounded-2xl px-8 py-4 text-white font-semibold flex items-center justify-center space-x-2 hover:scale-105 transition-all duration-300 glow group">
+                <span>Parliamone!</span>
+                <!-- ArrowRight SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+              <a href="#portfolio" class="glass-card rounded-2xl px-8 py-4 text-white/90 font-medium hover:bg-white/10 transition-all duration-300">
+                Vedi i progetti
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div class="w-6 h-10 glass-card rounded-full flex justify-center">
+          <div class="w-1 h-3 bg-gradient-to-b from-blue-400 to-transparent rounded-full mt-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="chi-sono" class="py-20 relative overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-1/2 right-0 w-72 h-72 liquid-gradient rounded-full opacity-10 blur-3xl floating"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-48 liquid-gradient rounded-full opacity-5 blur-3xl floating" style="animation-delay:3s"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text animate-fade-in-up">Chi sono</h2>
+            <div class="w-24 h-1 liquid-gradient rounded-full mx-auto"></div>
+          </div>
+          <div class="grid gap-12 items-center">
+            <div class="space-y-6 animate-slide-in-right">
+              <div class="glass-card rounded-2xl p-6">
+                <p class="text-lg text-white/90 leading-relaxed mb-4 font-medium">
+                  Sviluppatore web e mobile con esperienza in progetti moderni e innovativi.
+                </p>
+                <p class="text-lg text-white/80 leading-relaxed mb-4">
+                  Amo trasformare idee in prodotti digitali concreti, curando ogni dettaglio.
+                </p>
+                <p class="text-lg text-white/80 leading-relaxed">
+                  Lavoro con passione su siti web, e-commerce, gestionali e app mobile.
+                </p>
+                <div class="mt-8 text-center">
+                  <a href="#contatti" class="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
+                    Contattami
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-16">
+            <div class="glass-card rounded-2xl p-6 text-center hover:scale-110 hover:shadow-2xl transition-all duration-300 animate-fade-in-up border border-transparent hover:border-blue-400">
+              <div class="text-4xl mb-2">💼</div>
+              <div class="text-3xl font-bold gradient-text mb-1">5+</div>
+              <div class="text-white/70 text-sm font-medium">Anni di esperienza</div>
+            </div>
+            <div class="glass-card rounded-2xl p-6 text-center hover:scale-110 hover:shadow-2xl transition-all duration-300 animate-fade-in-up border border-transparent hover:border-blue-400">
+              <div class="text-4xl mb-2">🚀</div>
+              <div class="text-3xl font-bold gradient-text mb-1">25+</div>
+              <div class="text-white/70 text-sm font-medium">Progetti completati</div>
+            </div>
+            <div class="glass-card rounded-2xl p-6 text-center hover:scale-110 hover:shadow-2xl transition-all duration-300 animate-fade-in-up border border-transparent hover:border-blue-400">
+              <div class="text-4xl mb-2">🕑</div>
+              <div class="text-3xl font-bold gradient-text mb-1">24/7</div>
+              <div class="text-white/70 text-sm font-medium">Supporto dedicato</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="servizi" class="py-20 relative overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 liquid-gradient rounded-full opacity-5 blur-3xl floating"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 liquid-gradient rounded-full opacity-10 blur-3xl floating" style="animation-delay:2s"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text animate-fade-in-up">Cosa posso fare per te</h2>
+            <div class="w-24 h-1 liquid-gradient rounded-full mx-auto mb-6"></div>
+            <p class="text-xl text-white/70 max-w-2xl mx-auto">
+              Soluzioni digitali complete per trasformare la tua idea in un successo
+            </p>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-500 group animate-fade-in-up floating">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-400 to-cyan-400 p-4 mb-6 group-hover:scale-110 transition-transform duration-300 glow flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-4 group-hover:gradient-text transition-all duration-300">Siti Web</h3>
+              <p class="text-white/70 leading-relaxed group-hover:text-white/90 transition-colors duration-300">
+                Siti web moderni, responsive e ottimizzati per tutti i dispositivi. Design accattivante e performance elevate.
+              </p>
+            </div>
+            <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-500 group animate-fade-in-up floating">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-400 to-pink-400 p-4 mb-6 group-hover:scale-110 transition-transform duration-300 glow flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61l1.38-7.39H6"/></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-4 group-hover:gradient-text transition-all duration-300">E-commerce</h3>
+              <p class="text-white/70 leading-relaxed group-hover:text-white/90 transition-colors duration-300">
+                Negozi online completi con sistemi di pagamento sicuri, gestione inventario e dashboard amministrativa.
+              </p>
+            </div>
+            <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-500 group animate-fade-in-up floating">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-green-400 to-teal-400 p-4 mb-6 group-hover:scale-110 transition-transform duration-300 glow flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 5 15.4a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 8a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 8 5.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 16 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 8c.14.31.22.65.22 1s-.08.69-.22 1z"/></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-4 group-hover:gradient-text transition-all duration-300">Gestionale Personalizzato</h3>
+              <p class="text-white/70 leading-relaxed group-hover:text-white/90 transition-colors duration-300">
+                Software su misura per automatizzare i processi aziendali e migliorare l'efficienza operativa.
+              </p>
+            </div>
+            <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-500 group animate-fade-in-up floating">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-orange-400 to-red-400 p-4 mb-6 group-hover:scale-110 transition-transform duration-300 glow flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-4 group-hover:gradient-text transition-all duration-300">Menu Digitale</h3>
+              <p class="text-white/70 leading-relaxed group-hover:text-white/90 transition-colors duration-300">
+                Menu interattivi per ristoranti e bar con QR code, aggiornamenti in tempo reale e gestione ordini.
+              </p>
+            </div>
+            <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-500 group animate-fade-in-up floating">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-indigo-400 to-purple-400 p-4 mb-6 group-hover:scale-110 transition-transform duration-300 glow flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-4 group-hover:gradient-text transition-all duration-300">App Mobile</h3>
+              <p class="text-white/70 leading-relaxed group-hover:text-white/90 transition-colors duration-300">
+                Applicazioni native per iOS e Android con design intuitivo e funzionalità avanzate.
+              </p>
+            </div>
+            <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-500 group animate-fade-in-up floating">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-yellow-400 to-orange-400 p-4 mb-6 group-hover:scale-110 transition-transform duration-300 glow flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-4 group-hover:gradient-text transition-all duration-300">Consulenza Digitale</h3>
+              <p class="text-white/70 leading-relaxed group-hover:text-white/90 transition-colors duration-300">
+                Supporto strategico per la trasformazione digitale, analisi dei processi e soluzioni su misura per la crescita del tuo business.
+              </p>
+            </div>
+          </div>
+          <div class="text-center mt-16">
+            <div class="glass-card rounded-2xl p-8 inline-block">
+              <p class="text-white/80 mb-4">
+                Hai un progetto in mente? Parliamone insieme!
+              </p>
+              <a href="#contatti" class="glass-button rounded-2xl px-8 py-3 text-white font-semibold hover:scale-105 transition-all duration-300 glow">
+                Iniziamo subito
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-20 relative overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-0 right-1/4 w-80 h-80 liquid-gradient rounded-full opacity-5 blur-3xl floating"></div>
+        <div class="absolute bottom-0 left-1/4 w-96 h-64 liquid-gradient rounded-full opacity-10 blur-3xl floating" style="animation-delay:4s"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text animate-fade-in-up">Portfolio</h2>
+            <div class="w-24 h-1 liquid-gradient rounded-full mx-auto mb-6"></div>
+            <p class="text-xl text-white/70 max-w-2xl mx-auto">
+              Alcuni dei progetti che ho realizzato con passione e dedizione
+            </p>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="glass-card rounded-3xl overflow-hidden hover:scale-105 transition-all duration-500 group animate-fade-in-up">
+              <div class="h-48 bg-gradient-to-br from-pink-400 to-purple-400 relative overflow-hidden">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9zeBSgmjKiBePXf2qPBBCSPCOmVrYZ0Xrmw&s" alt="" class="w-full h-full object-cover" />
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:gradient-text transition-all duration-300">SkillPro</h3>
+                <p class="text-white/70 text-sm leading-relaxed mb-4">
+                  Piattaforma per la creazione di tornei esports.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="glass-card px-3 py-1 text-xs text-white/80 rounded-full">React</span>
+                  <span class="glass-card px-3 py-1 text-xs text-white/80 rounded-full">Node.js</span>
+                  <span class="glass-card px-3 py-1 text-xs text-white/80 rounded-full">MongoDB</span>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card rounded-3xl overflow-hidden hover:scale-105 transition-all duration-500 group animate-fade-in-up">
+              <div class="h-48 bg-gradient-to-br from-green-400 to-blue-400 relative overflow-hidden">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <img src="https://perpranzo.it/wp-content/uploads/2021/10/3.png" alt="" class="w-full h-full object-cover" />
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:gradient-text transition-all duration-300">Menu Digitale Sagra paese</h3>
+                <p class="text-white/70 text-sm leading-relaxed mb-4">
+                  Menu Digitale per ordini.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="glass-card px-3 py-1 text-xs text-white/80 rounded-full">React Native</span>
+                  <span class="glass-card px-3 py-1 text-xs text-white/80 rounded-full">Firebase</span>
+                  <span class="glass-card px-3 py-1 text-xs text-white/80 rounded-full">Redux</span>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card rounded-3xl overflow-hidden hover:scale-105 transition-all duration-500 group animate-fade-in-up">
+              <div class="h-48 bg-gradient-to-br from-orange-400 to-red-400 relative overflow-hidden">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <img src="https://centromedicosanmagno.it/wp-content/uploads/2023/11/paddle-tennis-.jpg" alt="" class="w-full h-full object-cover" />
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:gradient-text transition-all duration-300">Web App Padel</h3>
+                <p class="text-white/70 text-sm leading-relaxed mb-4">
+                  Web App per la gestione e organizzazione di partite di padel.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="glass-card px-3 py-1 text-xs text-white/80 rounded-full">NestJs</span>
+                  <span class="glass-card px-3 py-1 text-xs text-white/80 rounded-full">MongoDB</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-16">
+            <div class="glass-card rounded-2xl p-8 inline-block">
+              <p class="text-white/80 mb-4">
+                Vuoi vedere altri progetti o discutere del tuo?
+              </p>
+              <a href="#contatti" class="glass-button rounded-2xl px-8 py-3 text-white font-semibold hover:scale-105 transition-all duration-300 glow">
+                Contattami
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contatti" class="py-20 relative overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-1/4 left-0 w-96 h-96 liquid-gradient rounded-full opacity-5 blur-3xl floating"></div>
+        <div class="absolute bottom-1/4 right-0 w-80 h-80 liquid-gradient rounded-full opacity-10 blur-3xl floating" style="animation-delay:3s"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text animate-fade-in-up">Contattami</h2>
+            <div class="w-24 h-1 liquid-gradient rounded-full mx-auto mb-6"></div>
+            <p class="text-xl text-white/70 max-w-2xl mx-auto">
+              Hai un progetto in mente? Parliamone insieme e trasformiamo la tua idea in realtà
+            </p>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-12">
+            <div class="glass-card rounded-3xl p-8 animate-slide-in-left">
+              <h3 class="text-2xl font-bold text-white mb-6">Invia un messaggio</h3>
+              <form class="space-y-6" onsubmit="event.preventDefault(); alert('Messaggio inviato! Ti risponderò al più presto.'); this.reset();">
+                <div>
+                  <label for="name" class="text-white/90 mb-2 block">Nome *</label>
+                  <input id="name" name="name" type="text" class="glass-card border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 w-full px-4 py-2 rounded-lg" placeholder="Il tuo nome" required />
+                </div>
+                <div>
+                  <label for="email" class="text-white/90 mb-2 block">Email *</label>
+                  <input id="email" name="email" type="email" class="glass-card border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 w-full px-4 py-2 rounded-lg" placeholder="la.tua@email.com" required />
+                </div>
+                <div>
+                  <label for="message" class="text-white/90 mb-2 block">Messaggio *</label>
+                  <textarea id="message" name="message" class="glass-card border-white/20 text-white placeholder:text-white/50 focus:border-blue-400 min-h-[120px] w-full px-4 py-2 rounded-lg" placeholder="Raccontami del tuo progetto..." required></textarea>
+                </div>
+                <button type="submit" class="w-full glass-button hover:scale-105 transition-all duration-300 glow py-3 rounded-2xl text-white font-semibold flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 2L11 13"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 2L15 22l-4-9-9-4 22-7z"/></svg>
+                  Invia Messaggio
+                </button>
+              </form>
+            </div>
+            <div class="space-y-8 animate-slide-in-right">
+              <div class="glass-card rounded-3xl p-8">
+                <h3 class="text-2xl font-bold text-white mb-6">Contatto Rapido</h3>
+                <div class="space-y-6">
+                  <a href="mailto:davidemarino17@gmail.com" class="flex items-center space-x-4 glass-button rounded-2xl p-4 hover:scale-105 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>
+                    </div>
+                    <div>
+                      <div class="text-white font-semibold">Email</div>
+                      <div class="text-white/70 text-sm">davidemarino17@gmail.com</div>
+                    </div>
+                  </a>
+                  <a href="https://wa.me/+393280675764" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 glass-button rounded-2xl p-4 hover:scale-105 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-teal-400 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M16.72 11.06a6.5 6.5 0 1 0-5.66 5.66l2.09.7a1 1 0 0 0 1.26-1.26l-.7-2.09a6.5 6.5 0 0 0 3.01-3.01z"/></svg>
+                    </div>
+                    <div>
+                      <div class="text-white font-semibold">WhatsApp</div>
+                      <div class="text-white/70 text-sm">Messaggio diretto</div>
+                    </div>
+                  </a>
+                  <div class="flex items-center space-x-4 glass-card rounded-2xl p-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-xl flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5zm0 10a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2zm10-10a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V5zm0 10a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-2z"/></svg>
+                    </div>
+                    <div>
+                      <div class="text-white font-semibold">Telefono</div>
+                      <div class="text-white/70 text-sm">+39 328 067 5764</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="glass-card rounded-3xl p-8">
+                <h3 class="text-xl font-bold text-white mb-4">Disponibilità</h3>
+                <div class="space-y-3 text-white/80">
+                  <div class="flex justify-between"><span>Lun - Ven</span><span>9:00 - 18:00</span></div>
+                  <div class="flex justify-between"><span>Sabato</span><span>9:00 - 13:00</span></div>
+                  <div class="flex justify-between"><span>Domenica</span><span>Solo urgenze</span></div>
+                </div>
+                <div class="mt-4 p-3 glass-card rounded-xl">
+                  <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    <span class="text-white/90 text-sm">Disponibile per nuovi progetti</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="relative overflow-hidden py-12 border-t border-white/10">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute bottom-0 left-1/4 w-96 h-48 liquid-gradient rounded-full opacity-5 blur-3xl"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div class="space-y-4">
+              <div class="text-2xl font-bold gradient-text">Davide</div>
+              <p class="text-white/70 text-sm">Sviluppatore web e mobile specializzato in siti web, e-commerce, gestionali, menu digitali e app mobili. Trasformo le tue idee in realtà digitali.</p>
+            </div>
+            <div class="space-y-4">
+              <div class="text-2xl font-bold gradient-text">Servizi</div>
+              <p class="text-white/70 text-sm">Siti web responsive, e-commerce performanti, gestionali personalizzati e app mobile.</p>
+            </div>
+            <div class="space-y-4">
+              <div class="text-2xl font-bold gradient-text">Contatti</div>
+              <p class="text-white/70 text-sm">Email: davidemarino17@gmail.com</p>
+              <p class="text-white/70 text-sm">Telefono: +39 328 067 5764</p>
+            </div>
+          </div>
+          <div class="text-center">
+            <p class="text-white/70 text-sm">© 2023 Davide Marino. Tutti i diritti riservati.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
