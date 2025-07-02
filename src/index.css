@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 217 91% 60%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4% 96%;
+    --secondary-foreground: 240 6% 10%;
+
+    --muted: 240 4% 96%;
+    --muted-foreground: 240 3% 46%;
+
+    --accent: 240 4% 96%;
+    --accent-foreground: 240 6% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 217 91% 60%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 15%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4% 96%;
+    --sidebar-accent-foreground: 240 5% 15%;
+    --sidebar-border: 240 6% 90%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Dark theme background */
+  body:not(.light body) {
+    background: linear-gradient(135deg, hsl(240, 10%, 3.9%) 0%, hsl(235, 15%, 8%) 50%, hsl(240, 10%, 3.9%) 100%);
+  }
+
+  /* Light theme background */
+  .light body {
+    background: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(240, 4%, 96%) 50%, hsl(0, 0%, 100%) 100%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply backdrop-blur-xl border shadow-2xl transition-all duration-300;
+    box-shadow: 
+      0 8px 32px 0 rgba(31, 38, 135, 0.37),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+      0 1px 0 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Dark theme glass */
+  body:not(.light body) .glass-card {
+    @apply bg-white/5 border-white/10;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  }
+
+  /* Light theme glass */
+  .light .glass-card {
+    @apply bg-black/5 border-black/10;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 100%);
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+      0 1px 0 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .glass-button {
+    @apply backdrop-blur-xl border shadow-lg hover:scale-105 transition-all duration-300;
+  }
+
+  /* Dark theme button */
+  body:not(.light body) .glass-button {
+    @apply bg-white/10 border-white/20 hover:bg-white/20;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+  }
+
+  /* Light theme button */
+  .light .glass-button {
+    @apply bg-black/10 border-black/20 hover:bg-black/20;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+  }
+  
+  .glass-nav {
+    @apply backdrop-blur-xl border-b transition-all duration-300;
+  }
+
+  /* Dark theme nav */
+  body:not(.light body) .glass-nav {
+    @apply bg-black/20 border-white/10;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
+  }
+
+  /* Light theme nav */
+  .light .glass-nav {
+    @apply bg-white/80 border-black/10;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+  }
+  
+  .liquid-gradient {
+    background: linear-gradient(135deg, 
+      hsl(217, 91%, 60%) 0%, 
+      hsl(280, 91%, 60%) 25%, 
+      hsl(320, 91%, 60%) 50%, 
+      hsl(217, 91%, 60%) 75%, 
+      hsl(180, 91%, 60%) 100%);
+    background-size: 400% 400%;
+    animation: liquidFlow 8s ease-in-out infinite;
+  }
+  
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Light theme text adjustments */
+  .light .text-white {
+    @apply text-gray-800;
+  }
+
+  .light .text-white\/90 {
+    @apply text-gray-800/90;
+  }
+
+  .light .text-white\/80 {
+    @apply text-gray-700/80;
+  }
+
+  .light .text-white\/70 {
+    @apply text-gray-600/80;
+  }
+
+  .light .text-white\/60 {
+    @apply text-gray-500/80;
+  }
+}
+
+@keyframes liquidFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
